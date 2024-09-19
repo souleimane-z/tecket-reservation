@@ -34,6 +34,8 @@
             </p>
         </div>
 
+
+        <!--  Fopnction PHP pour le telechargement du fichier -->
 <?php
 if (isset($_GET['file'])) {
     $file = urldecode($_GET['file']);

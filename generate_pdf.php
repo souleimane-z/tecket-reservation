@@ -1,17 +1,17 @@
 <?php
-// Activation de l'affichage des erreurs pour le débogage
+// Activation de l'affichage des erreurs pour le débogage   -  (fonctions trouvées sur les forums)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Fonction de journalisation
+// Fonction de journalisation  -  (fonctions trouvées sur les forums)
 function debug_log($message) {
     error_log(date('[Y-m-d H:i:s] ') . $message . "\n", 3, __DIR__ . '/debug.log');
 }
 
 debug_log("Script démarré");
 
-// Vérification de la méthode de requête
+// Vérification de la méthode de requête  -  (fonctions trouvées sur les forums)
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     debug_log("Méthode de requête non autorisée ou formulaire non soumis");
     header("Location: index.php");
@@ -29,7 +29,7 @@ if (file_exists($autoloader_path)) {
     debug_log("ERREUR : Autoloader non trouvé à " . $autoloader_path);
     die("Erreur de configuration : Autoloader non trouvé");
 }
-
+// Importer les classes
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Endroid\QrCode\Builder\Builder;
@@ -60,7 +60,7 @@ try {
     die("Erreur lors de la génération du QR code : " . $e->getMessage());
 }
 
-// Contenu HTML du PDF
+// Contenu HTML pour le PDF
 $html = "
 <html>
 <head>
@@ -105,11 +105,11 @@ try {
     $dompdf->loadHtml($html);
     debug_log("HTML chargé dans Dompdf");
 
-    // Définir le format du papier et l'orientation
+    // Définir le format
     $dompdf->setPaper('A4', 'portrait');
     debug_log("Format du papier défini");
 
-    // Rendre le PDF
+    // Rendering le PDF
     $dompdf->render();
     debug_log("PDF rendu");
 

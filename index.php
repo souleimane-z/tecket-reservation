@@ -67,7 +67,6 @@
         </form>
     </div>
 
-    <!-- Script pour désactiver le bouton de soumission après un clic -->
     <script>
         document.querySelector('form').addEventListener('submit', function() {
             document.querySelector('.submit-button').disabled = true;
