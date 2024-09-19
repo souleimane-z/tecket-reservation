@@ -1,0 +1,19 @@
+{
+    "name": "sbzam/ticket-reservation",
+    "autoload": {
+        "psr-4": {
+            "Sbzam\\TicketReservation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "souleimane-z",
+            "email": "souleimane.zeggai@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.0",
+        "picqer/php-barcode-generator": "^2.4",
+        "endroid/qr-code": "^5.1"
+    }
+}
